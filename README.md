@@ -44,3 +44,8 @@ Parameters:
 
 1. {string} URL of resource to check
 2. {function} callback function with two parameters error (string) and result (json) `callback(err, result)`
+
+### Dependencies:
+
+* [get-bunch](https://github.com/clexit/get-bunch)
+* [valid-url](https://github.com/ogt/valid-url)

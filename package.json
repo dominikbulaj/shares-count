@@ -1,0 +1,11 @@
+{
+    "name":    "shares-count",
+    "description": "Return count of all URL shares on most popular networks",
+    "version": "0.0.1",
+    "main": "index.js",
+    "dependencies": {
+        "get-bunch": "~1.0.0",
+        "valid-url": "1.0.9"
+    },
+    "repository" : ""
+}

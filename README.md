@@ -39,6 +39,8 @@ shares.get('http://www.huffingtonpost.de', function (err, result) {
 ```
 
 There's only one method to be called - **get(url, callback)**
+
 Parameters:
+
 1. {string} URL of resource to check
 2. {function} callback function with two parameters error (string) and result (json) `callback(err, result)`

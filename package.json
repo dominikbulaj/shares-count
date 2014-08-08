@@ -7,5 +7,5 @@
         "get-bunch": "~1.0.0",
         "valid-url": "1.0.9"
     },
-    "repository" : ""
+    "repository" : "https://github.com/dominikbulaj/shares-count"
 }

@@ -11,9 +11,7 @@ Changes to original code
 
 Features
 --------
-Check provided url in each configured network for number of shares.
-
-## Module returns JSON object with shares count in each configured network
+Check provided url in each configured network for number of shares. It returns JSON object with shares count in each configured network:
 ```
 {
   facebook: 171767,

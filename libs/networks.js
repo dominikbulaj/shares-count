@@ -24,8 +24,8 @@ var networks = [
         name:  'google_plus',
         url:   'https://plusone.google.com/u/0/_/+1/fastbutton?count=true&url=%url',
         parse: function (res) {
-            var regexp = /window\.__SSR\s*=\s*\{c:\s*(\d+)/i;
-            var matches = res.match(regexp);
+            var regex = /window\.__SSR\s*=\s*\{c:\s*(\d+)/i;
+            var matches = res.match(regex);
             if (matches) {
                 return parseInt(matches[1], 10);
             }
@@ -38,8 +38,8 @@ var networks = [
         url:   'http://vk.com/share.php?act=count&url=%url',
         parse: function (res) {
             // VK.Share.count\([^,]+,\s*(\d+)\)
-            var regexp = /VK\.Share\.count\([^,]+,\s*(\d+)\)/i;
-            return parseInt(res.match(regexp)[1], 10);
+            var regex = /VK\.Share\.count\([^,]+,\s*(\d+)\)/i;
+            return parseInt(res.match(regex)[1], 10);
         }
     },
 
@@ -48,9 +48,21 @@ var networks = [
         url:   'http://www.odnoklassniki.ru/dk?st.cmd=extLike&uid=odklcnt0&ref=%url',
         parse: function (res) {
             // ODKL.updateCount\(\'[^\']+\'\s*,\s*\'(\d+)\'\)
-            var regexp = /ODKL\.updateCount\(\'[^\']+\'\s*,\s*\'(\d+)\'\)/i;
-            return parseInt(res.match(regexp)[1], 10);
+            var regex = /ODKL\.updateCount\(\'[^\']+\'\s*,\s*\'(\d+)\'\)/i;
+            return parseInt(res.match(regex)[1], 10);
 
+        }
+    },
+
+    {
+        name:  'wykop',
+        url:   'http://www.wykop.pl/dataprovider/diggerwidget/?url=%url',
+        parse: function (res) {
+            var regex = /class=.+wykop-vote-counter[^>]+><a[^>]+>(\d+)/i;
+            if (res.match(regex)) {
+                return parseInt(res.match(regex)[1], 10);
+            }
+            return 0;
         }
     }
 ];

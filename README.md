@@ -7,7 +7,7 @@ Changes to original code
 * networks.js is an array not object
 * there's no networks filtering (module checks all sources configured in networks.js)
 * added [valid-url](https://github.com/ogt/valid-url) dependency for validating URLs
-* added Facebook, Odnoklassniki and VKontakte shares counts
+* added Facebook, Odnoklassniki, VKontakte and Wykop.pl shares counts
 
 Features
 --------

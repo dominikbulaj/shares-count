@@ -1,14 +1,18 @@
 {
-    "name":         "shares-count",
-    "description":  "Return count of all URL shares on most popular networks",
-    "version":      "0.0.2",
-    "main":         "./libs/shares",
-    "homepage":     "http://www.webit.pl",
-    "dependencies": {
+    "name":            "shares-count",
+    "description":     "Return count of all URL shares on most popular networks",
+    "version":         "0.0.3",
+    "main":            "./libs/shares",
+    "homepage":        "http://www.webit.pl",
+    "dependencies":    {
         "get-bunch": "~1.0.0",
         "valid-url": "1.0.9"
     },
-    "repository":   {
+    "devDependencies": {
+        "mocha":  "^1.21.4",
+        "should": "^4.0.4"
+    },
+    "repository":      {
         "type": "git",
         "url":  "https://github.com/dominikbulaj/shares-count.git"
     }

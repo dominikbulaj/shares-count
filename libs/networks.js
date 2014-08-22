@@ -1,7 +1,7 @@
 var networks = [
     {
         name:  'facebook',
-        url:   'http://graph.facebook.com/?ids=%url',
+        url:   'http://graph.facebook.com/?id=%url',
         parse: function (res) {
             // json decode
             var resObj = JSON.parse(res);
@@ -29,6 +29,38 @@ var networks = [
             if (matches) {
                 return parseInt(matches[1], 10);
             }
+            return 0;
+        }
+    },
+
+    {
+        name:  'pinterest',
+        url:   'http://api.pinterest.com/v1/urls/count.json?callback=&url=%url',
+        parse: function (res) {
+            // json decode
+            return JSON.parse(res).count || 0;
+        }
+    },
+
+    {
+        name:  'linkedin',
+        url:   'http://www.linkedin.com/countserv/count/share?url=%url&format=json',
+        parse: function (res) {
+            // json decode
+            return JSON.parse(res).count || 0;
+        }
+    },
+
+    {
+        name:  'stumbleupon',
+        url:   'http://www.stumbleupon.com/services/1.01/badge.getinfo?url=%url',
+        parse: function (res) {
+            // json decode
+            var jsonData = JSON.parse(res);
+            if (jsonData.success && jsonData.result.in_index) {
+                return jsonData.result.views;
+            }
+
             return 0;
         }
     },

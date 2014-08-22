@@ -1,11 +1,15 @@
 {
-    "name":    "shares-count",
-    "description": "Return count of all URL shares on most popular networks",
-    "version": "0.0.1",
-    "main": "index.js",
+    "name":         "shares-count",
+    "description":  "Return count of all URL shares on most popular networks",
+    "version":      "0.0.2",
+    "main":         "./libs/shares",
+    "homepage":     "http://www.webit.pl",
     "dependencies": {
         "get-bunch": "~1.0.0",
         "valid-url": "1.0.9"
     },
-    "repository" : "https://github.com/dominikbulaj/shares-count"
+    "repository":   {
+        "type": "git",
+        "url":  "https://github.com/dominikbulaj/shares-count.git"
+    }
 }

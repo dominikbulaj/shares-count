@@ -1,3 +1,8 @@
+0.0.4 / 2014-08-23
+==================
+
+* for tests now uses Node's Assert instead should.js (one less devDependency)
+
 0.0.3 / 2014-08-22
 ==================
 

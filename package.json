@@ -1,7 +1,7 @@
 {
     "name":            "shares-count",
     "description":     "Return count of all URL shares on most popular networks",
-    "version":         "0.0.3",
+    "version":         "0.0.4",
     "main":            "./libs/shares",
     "homepage":        "http://www.webit.pl",
     "dependencies":    {
@@ -9,8 +9,7 @@
         "valid-url": "1.0.9"
     },
     "devDependencies": {
-        "mocha":  "^1.21.4",
-        "should": "^4.0.4"
+        "mocha":  "^1.21.4"
     },
     "repository":      {
         "type": "git",

@@ -6,7 +6,7 @@ var parsers = {};
 module.exports = function (url, callback) {
     if (typeof callback !== 'function') {
         console.error('ERROR: count-shares: callback function is required');
-        return { 'error': true, 'message': 'missing callback' };
+        throw new Error('Missing callback');
     }
 
     if (!validUrl.isWebUri(url)) {

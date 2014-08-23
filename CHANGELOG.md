@@ -1,3 +1,10 @@
+0.0.5 / 2014-08-24
+==================
+
+* added one more test for missing callback
+* if callback is missing it will throw Error
+* updated package.json (main file information)
+
 0.0.4 / 2014-08-23
 ==================
 

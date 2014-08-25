@@ -5,7 +5,7 @@
     "main":            "index.js",
     "homepage":        "http://www.webit.pl",
     "dependencies":    {
-        "get-bunch": "~1.0.0",
+        "get-bunch": "https://github.com/dominikbulaj/get-bunch/tarball/master",
         "valid-url": "1.0.9"
     },
     "devDependencies": {

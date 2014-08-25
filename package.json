@@ -9,10 +9,13 @@
         "valid-url": "1.0.9"
     },
     "devDependencies": {
-        "mocha":  "^1.21.4"
+        "mocha": "^1.21.4"
     },
     "repository":      {
         "type": "git",
         "url":  "https://github.com/dominikbulaj/shares-count.git"
+    },
+    "scripts":         {
+        "test": "mocha test/test.js"
     }
 }

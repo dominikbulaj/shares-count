@@ -2,12 +2,15 @@ Shares Count
 ============
 Originally developed as Javascript code [https://github.com/clexit/social-widgets](https://github.com/clexit/social-widgets) by [clexit](https://github.com/clexit)
 
+[![Build Status](https://travis-ci.org/dominikbulaj/shares-count.svg?branch=master)](https://travis-ci.org/dominikbulaj/shares-count)
+
 Changes to original code
 ------------------------
 * networks.js is an array not object
 * there's no networks filtering (module checks all sources configured in networks.js)
 * added [valid-url](https://github.com/ogt/valid-url) dependency for validating URLs
 * added Facebook, Odnoklassniki, VKontakte and Wykop.pl shares counts
+* uses forked [get-bunch](https://github.com/dominikbulaj/get-bunch) repository with added support for HTTPS protocol (see below "Dependencies")
 
 Features
 --------
@@ -45,5 +48,5 @@ Parameters:
 
 ### Dependencies:
 
-* [get-bunch](https://github.com/clexit/get-bunch)
+* [get-bunch](https://github.com/dominikbulaj/get-bunch) (forked from [clexit/get-bunch](https://github.com/clexit/get-bunch))
 * [valid-url](https://github.com/ogt/valid-url)

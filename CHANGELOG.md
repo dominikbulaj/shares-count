@@ -1,3 +1,9 @@
+0.0.6 / 2014-08-25
+==================
+
+* added Travis CI
+* changed dependency from [clexit/get-bunch](https://github.com/clexit/get-bunch) to forked [get-bunch](https://github.com/dominikbulaj/get-bunch) where I added support for HTTPS protocol
+
 0.0.5 / 2014-08-24
 ==================
 

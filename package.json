@@ -1,7 +1,7 @@
 {
     "name":            "shares-count",
     "description":     "Return count of all URL shares on most popular networks",
-    "version":         "0.0.5",
+    "version":         "0.0.6",
     "main":            "index.js",
     "homepage":        "http://www.webit.pl",
     "dependencies":    {

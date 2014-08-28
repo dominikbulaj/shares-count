@@ -22,10 +22,13 @@ describe('shares-count', function () {
     });
 
     describe('#fetching correct but notexisting URL - http://notexistingurl.com', function(){
-        it('should save without error and with result object (with zeros)', function(done){
+        it('should end without error and with result object (with zeros)', function(done){
             shares.get('http://notexistingurl.com', function (err, result) {
                 assert.ifError(err);
                 assert(typeof result == 'object');
+
+                for (first in result) break; // get first network
+                assert(result[first] === 0);
                 done();
             });
         });

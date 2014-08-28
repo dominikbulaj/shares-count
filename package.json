@@ -5,7 +5,7 @@
     "main":            "index.js",
     "homepage":        "http://www.webit.pl",
     "dependencies":    {
-        "get-bunch": "https://github.com/dominikbulaj/get-bunch/tarball/master",
+        "request" : "*",
         "valid-url": "1.0.9"
     },
     "devDependencies": {
@@ -16,6 +16,6 @@
         "url":  "https://github.com/dominikbulaj/shares-count.git"
     },
     "scripts":         {
-        "test": "mocha test/test.js"
+        "test": "mocha test/test.js --timeout 10000"
     }
 }

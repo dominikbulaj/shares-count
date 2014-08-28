@@ -10,7 +10,6 @@ Changes to original code
 * there's no networks filtering (module checks all sources configured in networks.js)
 * added [valid-url](https://github.com/ogt/valid-url) dependency for validating URLs
 * added Facebook, Pinterest, LinkedIn, StumbleUpon, Odnoklassniki (Russia), VKontakte (Russia) and Wykop.pl (Poland) shares counts
-* uses forked [get-bunch](https://github.com/dominikbulaj/get-bunch) repository with added support for HTTPS protocol (see below "Dependencies")
 
 Features
 --------
@@ -19,9 +18,7 @@ Check provided url in each configured network for number of shares. It returns J
 {
   facebook: 171767,
   twitter: 550,
-  google_plus: 2372,
-  vk: 32,
-  odnoklassniki: 60
+  google_plus: 2372
 }
 ```
 
@@ -29,13 +26,14 @@ Check provided url in each configured network for number of shares. It returns J
 ```javascript
 var shares = require('shares-count');
 
-shares.get('http://www.huffingtonpost.de', function (err, result) {
+shares.get('http://www.example.com', function (err, result) {
     if (err) {
         console.error(err);
         return;
     }
 
     // do what you want with result JSON
+    console.log(result);
 });
 ```
 
@@ -48,5 +46,5 @@ Parameters:
 
 ### Dependencies:
 
-* [get-bunch](https://github.com/dominikbulaj/get-bunch) (forked from [clexit/get-bunch](https://github.com/clexit/get-bunch))
+* [request](https://www.npmjs.org/package/request)
 * [valid-url](https://github.com/ogt/valid-url)

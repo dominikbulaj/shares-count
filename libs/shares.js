@@ -1,7 +1,8 @@
-var getBunch = require('get-bunch'),
-    validUrl = require('valid-url'),
-    networks = require('./networks');
-var parsers = {};
+var validUrl = require('valid-url'),
+    networks = require('./networks'),
+    request = require('request');
+
+var DEFAULT_TIMEOUT = 2000; // ms
 
 module.exports = function (url, callback) {
     if (typeof callback !== 'function') {
@@ -15,8 +16,22 @@ module.exports = function (url, callback) {
 
     var requests = getRequests(url);
 
-    getBunch.getMulti(requests, function (results) {
-        callback(null, parseResults(results));
+    var counts = {};
+    var fetched = 0;
+    requests.forEach(function (network, index, array) {
+        request({url: network.url, timeout: network.timeout || DEFAULT_TIMEOUT}, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                counts[network.name] = network.parse(body);
+            } else {
+                counts[network.name] = 0;
+                console.error(error);
+            }
+
+            // if last - parse results
+            if (++fetched === array.length) {
+                callback(null, counts);
+            }
+        });
     });
 }
 
@@ -26,34 +41,21 @@ function getRequests(url) {
 
     networks.map(function (network) {
 
-        var networkUrl = network.url.replace('%url', url);
-        if (network.name === 'facebook') { // http://stackoverflow.com/a/11967693/1900677
-            networkUrl = networkUrl.replace(/%2C/g, '%252C');
+        if (!(network.disabled || false)) {
+
+            var networkUrl = network.url.replace('%url', url);
+            if (network.name === 'facebook') { // http://stackoverflow.com/a/11967693/1900677
+                networkUrl = networkUrl.replace(/%2C/g, '%252C');
+            }
+
+            requests.push({
+                name:    network.name,
+                url:     networkUrl,
+                parse:   network.parse,
+                timeout: network.timeout
+            });
         }
-
-        requests.push({
-            name: network.name,
-            url:  networkUrl,
-            type: 'plain'
-        });
-
-        parsers[network.name] = network.parse;
     });
 
     return requests;
-}
-
-function parseResults(results) {
-    var parsedResults = {};
-
-    for (var key in results) {
-        try {
-            parsedResults[ key ] = parsers[ key ](results[key]);
-        } catch (e) {
-            console.error(e);
-            parsedResults[ key ] = 0;
-        }
-    }
-
-    return parsedResults;
 }

@@ -72,7 +72,9 @@ var networks = [
             // VK.Share.count\([^,]+,\s*(\d+)\)
             var regex = /VK\.Share\.count\([^,]+,\s*(\d+)\)/i;
             return parseInt(res.match(regex)[1], 10);
-        }
+        },
+        timeout:10000,
+        disabled: true
     },
 
     {
@@ -83,7 +85,8 @@ var networks = [
             var regex = /ODKL\.updateCount\(\'[^\']+\'\s*,\s*\'(\d+)\'\)/i;
             return parseInt(res.match(regex)[1], 10);
 
-        }
+        },
+        disabled: true
     },
 
     {
@@ -95,7 +98,8 @@ var networks = [
                 return parseInt(res.match(regex)[1], 10);
             }
             return 0;
-        }
+        },
+        disabled: true
     }
 ];
 

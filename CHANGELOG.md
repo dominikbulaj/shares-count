@@ -1,3 +1,8 @@
+0.1.1 / 2014-09-08
+==================
+
+* fixed bug - incorrect parsing Facebook shares count
+
 0.1.0 / 2014-08-28
 ==================
 

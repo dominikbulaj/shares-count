@@ -16,6 +16,7 @@ describe('shares-count', function () {
             shares.get('http://www.huffingtonpost.com', function (err, result) {
                 assert.ifError(err);
                 assert(typeof result == 'object');
+                assert(result.facebook > 0);
                 done();
             });
         });

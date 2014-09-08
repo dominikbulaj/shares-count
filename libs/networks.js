@@ -5,9 +5,8 @@ var networks = [
         parse: function (res) {
             // json decode
             var resObj = JSON.parse(res);
-            for (first in resObj) break;
 
-            return resObj[first].shares || 0;
+            return resObj.shares || resObj.likes || 0;
         }
     },
 

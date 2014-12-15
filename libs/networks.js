@@ -34,10 +34,14 @@ var networks = [
 
     {
         name:  'pinterest',
-        url:   'http://api.pinterest.com/v1/urls/count.json?callback=&url=%url',
+        url:   'http://api.pinterest.com/v1/urls/count.json?callback=pins&url=%url',
         parse: function (res) {
-            // json decode
-            return JSON.parse(res).count || 0;
+
+            function pins(data) {
+                return data.count || 0;
+            }
+
+            return eval(res);
         }
     },
 

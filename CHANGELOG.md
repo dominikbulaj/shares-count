@@ -1,3 +1,8 @@
+0.1.2 / 2014-12-15
+==================
+
+* fixed bug - Pinterest requires callback function name (JSONP)
+
 0.1.1 / 2014-09-08
 ==================
 
